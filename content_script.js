@@ -50,10 +50,6 @@ const reqMessage = (e) => {
         }px`;
         div.style.left = `${posX}px`;
 
-        div.onmouseleave = () => {
-          div.parentNode.removeChild(div);
-        };
-
         div.appendChild(ul);
         document.body.appendChild(div);
 
