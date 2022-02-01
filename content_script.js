@@ -6,6 +6,9 @@
 //   isChecked = request.isChecked;
 // });
 
+let posX;
+let posY;
+
 const reqMessage = (e) => {
   const msg = window.getSelection().toString();
 
@@ -37,15 +40,15 @@ const reqMessage = (e) => {
           ul.appendChild(li);
         }
 
-        div.style.zIndex = "999";
+        div.style.zIndex = "9999999999999999999";
         div.style.position = "absolute";
         div.style.backgroundColor = "#eee";
         div.style.padding = "5px";
 
         div.style.top = `${
-          parseInt(e.clientY + window.scrollY + e.target.style.height) + 15
+          parseInt(posY + window.scrollY + e.target.style.height) + 15
         }px`;
-        div.style.left = `${e.clientX}px`;
+        div.style.left = `${posX}px`;
 
         div.onmouseleave = () => {
           div.parentNode.removeChild(div);
@@ -53,6 +56,12 @@ const reqMessage = (e) => {
 
         div.appendChild(ul);
         document.body.appendChild(div);
+
+        document.onkeyup = (e) => {
+          e.key === "Escape" &&
+            div.parentNode &&
+            div.parentNode.removeChild(div);
+        };
 
         // 일정 시간 경과시 삭제
         setTimeout(() => {
@@ -63,6 +72,11 @@ const reqMessage = (e) => {
   });
 };
 
+document.onkeydown = (e) => {
+  e.shiftKey && e.ctrlKey && reqMessage(e);
+};
+
 document.onmouseup = (e) => {
-  reqMessage(e);
+  posX = e.clientX;
+  posY = e.clientY;
 };
