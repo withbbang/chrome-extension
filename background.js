@@ -4,11 +4,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const { msg, isDict } = request;
 
   if (isDict === false) {
-    // const urlencoded = new URLSearchParams();
-    // urlencoded.append("source", "en")
-    // urlencoded.append('target', "ko")
-    // urlencoded.append('text', msg)
-
     fetch("https://openapi.naver.com/v1/papago/n2mt", {
       method: "POST",
       headers: {
@@ -25,7 +20,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       if (res.status === 200) {
         res.text().then((text) => {
           const obj = JSON.parse(text);
-          console.log(obj);
 
           sendResponse({
             status: res.status,
