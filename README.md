@@ -1,3 +1,12 @@
-"# chrome-extension"
+# 사용법
 
-copy in https://github.com/yceffort/chrome-extension-daum-en-ko-dictionary
+1. 단어 혹은 구문 드래그
+2. ctrl + shift 누를 시 단어 검색 및 구문 해석
+3. 익스텐션 창에서 단어 혹은 구문 검색 변경 가능
+
+# 구문 번역은 파파고 api 키를 발급받은 후 동일 경로에 프로젝트 경로에 js파일을 만든 후
+
+# CLIENT_ID, CLIENT_SECRET 상수값 선언 후 사용하면 된다.
+
+단어: 다음 단어 사전 api
+번역: 파파고 번역 api
