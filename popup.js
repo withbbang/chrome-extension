@@ -1,12 +1,10 @@
 "use strict";
 
 (function init() {
-  let isDict;
-
   chrome.storage.local.get(["isDict"], (result) => {
     isDict = result.isDict;
 
-    if (isDict === false) {
+    if (result.isDict === false) {
       document.getElementById("dict").style.display = "none";
       document.getElementById("translation").style.display = "";
       document.getElementById("toggle").checked = false;
