@@ -2,8 +2,6 @@
 
 (function init() {
   chrome.storage.local.get(["isDict"], (result) => {
-    isDict = result.isDict;
-
     if (result.isDict === false) {
       document.getElementById("dict").style.display = "none";
       document.getElementById("translation").style.display = "";
