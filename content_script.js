@@ -59,17 +59,15 @@ const reqMessage = (e) => {
             div.parentNode.removeChild(div);
         };
 
-        // 일정 시간 경과시 삭제
-        setTimeout(() => {
+        document.onclick = () =>
           div.parentNode && div.parentNode.removeChild(div);
-        }, 5 * 1000);
       }
     });
   });
 };
 
 document.onkeydown = (e) => {
-  e.shiftKey && e.ctrlKey && reqMessage(e);
+  e.ctrlKey && e.altKey && reqMessage(e);
 };
 
 document.onmouseup = (e) => {
