@@ -23,5 +23,14 @@
   },
   "icons": {
     "48": "icons/earth.png"
+  },
+  "commands": {
+    "toggle_command": {
+      "suggested_key": {
+        "default": "Ctrl + Q",
+        "mac": "Command + Q"
+      },
+      "description": "Toggle Command"
+    }
   }
 }

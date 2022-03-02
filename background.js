@@ -1,5 +1,12 @@
 "use strict";
 
+chrome.commands.onCommand.addListener((command) => {
+  chrome.storage.local.get(["isDict"], (result) => {
+    if (result.isDict === false) chrome.storage.local.set({ isDict: true });
+    else chrome.storage.local.set({ isDict: false });
+  });
+});
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const { msg, isDict } = request;
 
