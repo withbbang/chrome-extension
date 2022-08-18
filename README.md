@@ -27,19 +27,20 @@ CHROME-EXTENSION
 
 - background.js: 브라우저가 살아있는 상태에 외부에서 유저가 보고 있는 페이지를 간접적으로 조작하는 스크립트
 - content_script.js: 유저가 보고 있는 페이지에서 동작하는 스크립트
-- popup.js: 확장자 팝업 페이지 제어 스크립트
+- popup.js: 익스텐션 팝업 페이지 제어 스크립트
 - env.js: 환경 변수
-- popup.html: 확장자 팝업 페이지
+- popup.html: 익스텐션 팝업 페이지
+- manifest.json: 익스텐션 구성 정보를 담고있는 파일
 
 ---
 
 ### 사용한 API
 
-#### 1)파파고 네이버 번역 API
+#### 1) 파파고 네이버 번역 API
 
 - https://openapi.naver.com/v1/papago/n2mt
 
-#### 2)다음 사전 API
+#### 2) 다음 사전 API
 
 - https://dic.daum.net/search.do?q=word
 
