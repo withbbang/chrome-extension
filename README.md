@@ -2,9 +2,11 @@
 
 - Chrome 브라우저에서 동작하는 확장 프로그램
 - 개인 프로젝트
+  </br>
 
 ---
 
+</br>
 ### 프로젝트 구조
 
 ```
@@ -21,8 +23,9 @@ CHROME-EXTENSION
 └─ popup.css
 ```
 
----
+## </br>
 
+</br>
 ### 파일 설명
 
 - background.js: 브라우저가 살아있는 상태에 외부에서 유저가 보고 있는 페이지를 간접적으로 조작하는 스크립트
@@ -31,9 +34,11 @@ CHROME-EXTENSION
 - env.js: 환경 변수
 - popup.html: 익스텐션 팝업 페이지
 - manifest.json: 익스텐션 구성 정보를 담고있는 파일
+  </br>
 
 ---
 
+</br>
 ### 사용한 API
 
 #### 1) 파파고 네이버 번역 API
@@ -43,7 +48,9 @@ CHROME-EXTENSION
 #### 2) 다음 사전 API
 
 - https://dic.daum.net/search.do?q=word
+  </br>
 
 ---
 
+</br>
 ### 구현화면
