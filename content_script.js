@@ -77,7 +77,7 @@ const reqMessage = (e) => {
 
 // ctrl + alt 키 눌렀을 때 이벤트 요청
 document.onkeydown = (e) => {
-  e.ctrlKey && e.altKey && reqMessage(e);
+  e.metaKey && e.ctrlKey && reqMessage(e);
 };
 
 // 사전 혹은 번역 팝업 생성할 위치 받아오기
