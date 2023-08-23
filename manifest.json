@@ -28,7 +28,7 @@
     "toggle_command": {
       "suggested_key": {
         "default": "Ctrl + Q",
-        "mac": "Command + E"
+        "mac": "MacCtrl + E"
       },
       "description": "Toggle Command"
     }
