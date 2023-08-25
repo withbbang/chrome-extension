@@ -18,6 +18,11 @@ chrome.commands.onCommand.addListener((command) => {
  */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const { msg, isDict } = request;
+  const dict = {
+    한국어사전: 1,
+    영어사전: 2,
+    영영사전: 3,
+  };
 
   // 토글이 번역일 경우 -> 파파고 번역 API
   if (isDict === false)
@@ -56,15 +61,36 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         res.text().then((text) => {
           const parser = new DOMParser();
           const daumDocument = parser.parseFromString(text, "text/html");
-          const searchResults = daumDocument.querySelector(".search_box");
+          const titleWordTags = daumDocument.querySelectorAll(".tit_word");
+          const searchResults = [...titleWordTags]
+            .filter(
+              (titleWordTag) =>
+                titleWordTag.innerText === "한국어사전" ||
+                titleWordTag.innerText === "영어사전" ||
+                titleWordTag.innerText === "영영사전"
+            )
+            .sort((a, b) => {
+              if (dict[a.innerText] < dict[b.innerText]) return -1;
+              else return 1;
+            })
+            .map((tag) => tag.parentElement)
+            .map((tag) => tag.nextElementSibling);
 
-          if (searchResults) {
-            const searchLi = searchResults.getElementsByTagName("li");
+          if (
+            searchResults &&
+            Array.isArray(searchResults) &&
+            searchResults.length > 0
+          ) {
+            let searchLi = [];
+
+            searchResults.forEach((result) => {
+              searchLi = [...searchLi, ...result.getElementsByTagName("li")];
+            });
 
             const results = [...searchLi].map((li) =>
               [...li.getElementsByClassName("txt_search")]
                 .map((txt) => txt.innerHTML.replace(/(<([^>]+)>)/gi, ""))
-                .join(""),
+                .join("")
             );
 
             sendResponse({
